@@ -1,5 +1,5 @@
-#ifndef scheduling_H
-#define scheduling_H
+#ifndef scheduler_H
+#define scheduler_H
 
 
 typedef struct{
@@ -21,4 +21,4 @@ typedef struct{
 }scheduler;
 
 
-#endif // scheduling_H
+#endif // scheduler_H
