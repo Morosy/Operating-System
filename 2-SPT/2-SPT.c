@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
     // process scan done
 
     process = sort_By_Processing_Time(process, process_num);
-    print_process_list(process, process_num);
     // sort done
 
     printf("-- process start --\n");
