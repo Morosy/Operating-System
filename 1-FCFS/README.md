@@ -68,3 +68,9 @@ task | arrival_time | finish_time | response_time |
 average response time: 11.5
 ```
 
+#### 4. 1-FCFS_time.c
+処理関数に
+```
+sleep(1)
+```
+を追加することで，時間経過を再現
