@@ -59,9 +59,8 @@ int main(int argc, char *argv[])
     // processing done
 
     sort_By_Arrival_Time(process, process_num);
-    double response_time = calc_Response_Time(process, process_num);
     print_Response_Time(process, process_num);
-    printf("average response time: %.1f\n", response_time);
+
     return 0;
 }
 
@@ -280,11 +279,13 @@ double calc_Response_Time(SCHEDULER *process, int process_num)
 
 void print_Response_Time(SCHEDULER *process, int process_num)
 {
+    double response_time = calc_Response_Time(process, process_num);
     printf("\ntask | arrival_time | finish_time | response_time |\n");
     printf("---------------------------------------------------\n");
     for(int i = 0; i < process_num; i++){
         printf("%4s | %12d | %11d | %13.1f |\n", process[i].name, process[i].arrival_time, process[i].finish_time, process[i].response_time);
     }
+    printf("average response time: %.1f\n", response_time);
 }
 
 
