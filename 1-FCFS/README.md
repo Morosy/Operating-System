@@ -21,13 +21,20 @@ D, 5, 3
 #### 2. 実行
 実行時に引数としてファイル名を指定
 ``` bash
-$ gcc FCFS.c -o FCFS
-$ ./FCFS process.csv
+$ gcc 1-FCFS.c -o 1-FCFS
+$ ./1-FCFS process.csv
 ```
 
 #### 3. 結果
 ```
--- processing start --
+----- process -----
+name, arrival_time, processing_time
+A, 0, 2
+B, 1, 10
+C, 3, 7
+D, 5, 3
+-------------------
+-- process start --
  1 | process: A
  2 | process: A finish
  3 | process: B
@@ -50,14 +57,14 @@ $ ./FCFS process.csv
 20 | process: D
 21 | process: D
 22 | process: D finish
--- Processing end --
+--- process end ---
 
 task | arrival_time | finish_time | response_time |
 ---------------------------------------------------
-   A |            0 |           2 |             2 |
-   B |            1 |          12 |            11 |
-   C |            3 |          19 |            16 |
-   D |            5 |          22 |            17 |
-average response time: 11
+   A |            0 |           2 |           2.0 |
+   B |            1 |          12 |          11.0 |
+   C |            3 |          19 |          16.0 |
+   D |            5 |          22 |          17.0 |
+average response time: 11.5
 ```
 
