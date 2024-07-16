@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
     printf("--- process end ---\n");
     // processing done
     print_Response_Time(process, process_num);
+    free(process);
 
     return 0;
 }
