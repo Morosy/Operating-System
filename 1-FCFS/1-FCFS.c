@@ -21,7 +21,7 @@ void print_process(SCHEDULER, int);
 void print_null(int);
 
 void fcfs_processing(SCHEDULER *, int);
-void calc_Response_Time(SCHEDULER *, int);
+double calc_Response_Time(SCHEDULER *, int);
 
 void print_Response_Time(SCHEDULER *, int);
 
@@ -43,10 +43,13 @@ int main(int argc, char *argv[])
     process = sort_By_Arrival_Time(process, process_num);
     // sort done
 
+    printf("-- process start --\n");
     fcfs_processing(process, process_num);
+    printf("--- process end ---\n");
     // processing done
-    calc_Response_Time(process, process_num);
+    double response_time = calc_Response_Time(process, process_num);
     print_Response_Time(process, process_num);
+    printf("average response time: %.1f\n", response_time);
     return 0;
 }
 
@@ -180,12 +183,17 @@ void print_null(int time)
 }
 
 
-void calc_Response_Time(SCHEDULER *process, int process_num)
+double calc_Response_Time(SCHEDULER *process, int process_num)
 {
+    double response_time = 0;
     for(int i = 0; i < process_num; i++){
         process[i].response_time = (double)process[i].finish_time - (double)process[i].arrival_time;
+        response_time += process[i].response_time;
         process[i].response_time = round(process[i].response_time * 10) / 10;
     }
+    response_time /= process_num;
+    response_time = round(response_time * 10) / 10;
+    return response_time;
 }
 
 void print_Response_Time(SCHEDULER *process, int process_num)
