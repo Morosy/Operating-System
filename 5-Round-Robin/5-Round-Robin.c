@@ -79,6 +79,7 @@ void round_Robin_Processing(SCHEDULER *process, int process_num, int time_slice)
     int time = 0;
     int slice = 0;
     int flag = 0;
+    int flag2 = 0;
     while(1){
         // 到着次第 status = 1
         if((process[0].arrival_time <= time) && (process[0].status == 0)){
@@ -88,8 +89,15 @@ void round_Robin_Processing(SCHEDULER *process, int process_num, int time_slice)
         // 先頭のプロセスを実行状態に
         if(process[0].status == 1){
             process[0].status = 2;
+            flag2 = 0;
         }else{
             shift_Scheduler(process, process_num);
+            flag2++;
+            if(flag2 == process_num){
+                time++;
+                print_null(time);
+                flag2 = 0;
+            }
             continue;
         }
 
