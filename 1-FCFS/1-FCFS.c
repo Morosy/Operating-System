@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
     // processing done
     print_Response_Time(process, process_num);
 
+    free(process);
     return 0;
 }
 
